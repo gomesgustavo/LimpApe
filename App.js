@@ -1,18 +1,62 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View  } from "react-native";
+import { List, ListItem } from 'react-native-elements'
+
+const list  = [
+  {
+    nome: 'Gustavo',
+    foto: 'foto',
+    cômodo: 'Cozinha'
+  },
+  {
+    nome: 'Élvis',
+    foto: 'foto',
+    cômodo: 'Sala/Corredor'
+  },
+  {
+    nome: 'nome',
+    foto: 'foto',
+    cômodo: 'Banheiro'
+  },
+  {
+    nome: 'Jorge',
+    foto: 'foto',
+    cômodo: 'Área de Serviço'
+  },
+  {
+    nome: 'Élvis',
+    foto: 'foto',
+    cômodo: 'Retirada dos Lixos'
+  },
+  {
+    nome: 'Interior da Geladeira',
+    foto: 'foto',
+    cômodo: 'Élvis e Gustavo'
+  },
+  {
+    nome: 'Jorge',
+    foto: 'foto',
+    cômodo: 'Interior dos Armarios'
+  }
+]
 
 export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>LimpApe</Text>
-        <Text style={styles.instructions}>Cozinha: Gustavo</Text>
-        <Text style={styles.instructions}>Sala/Corredor : Élvis</Text>
-        <Text style={styles.instructions}>Banheiro : Gustavo</Text>
-        <Text style={styles.instructions}>Área de Serviço : Jorge</Text>
-        <Text style={styles.instructions}>Retirada dos Lixos : Élvis</Text>
-        <Text style={styles.instructions}>Interior da Geladeira : Élvis e Gustavo</Text>
-        <Text style={styles.instructions}>Interior dos Armarios : Jorge</Text>
+        <List containerStyle={{marginBottom: 20}}>
+  {
+    list.map((l) => (
+      <ListItem
+        roundAvatar
+        avatar={{uri:l.avatar_url}}
+        key={l.name}
+        title={l.name}
+      />
+    ))
+  }
+</List>
       </View>
     );
   }
@@ -34,5 +78,10 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: "#333333",
     marginBottom: 5
+  },
+  item: {
+    padding: 10,
+    fontSize: 18,
+    height: 44,
   }
 });
